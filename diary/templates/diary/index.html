@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Diary</title>
+</head>
+<body>
+    <h3>Diary</h3>
+
+{% for d in posts %}
+    <hr/>
+    <h1>{{ d.title }}</h1>
+    <h5>{{ d.created_at }}</h5>
+    <h5>{{ d.updated_at }}</h5>
+    <h2><p>{{ d.message }}</p></h2>
+
+{% endfor%}
+</body>
+</html>
