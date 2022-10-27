@@ -9,7 +9,7 @@
 
 {% for d in posts %}
     <hr/>
-    <h1>{{ d.title }}</h1>
+    <h1><a href="{{ d.get_absolute_url }}">{{ d.title }}</a></h1>
     <h5>{{ d.created_at }}</h5>
     <h5>{{ d.updated_at }}</h5>
     <h2><p>{{ d.message }}</p></h2>
