@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Memory
+from django.shortcuts import render, redirect
+from diary.models import Memory
 
 def index(request) :
     posts = Memory.objects.all().order_by('-pk')
@@ -22,3 +22,19 @@ def memory_detail  (request, pk):
         }
     )   
 
+from django.views.generic import CreateView
+from diary.forms import DiaryForm
+
+def diary_new(request):
+
+    if request.method == "GET" :
+        form = DiaryForm()
+    else :
+        form = DiaryForm(request.POST)
+        if form.is_valid() :
+            post = form.save() # ModelForm에서 지원
+            return redirect(post)
+        
+    return render(request, "diary/diary_form.html", {
+        "form" : form,
+    })
