@@ -7,6 +7,7 @@
 <body>
     <h3>Diary</h3>
 
+
 {% for d in posts %}
     <hr/>
     <h1><a href="{{ d.get_absolute_url }}">{{ d.title }}</a></h1>

@@ -6,3 +6,4 @@ class DiaryForm(forms.ModelForm):
     class Meta:
         model = Memory
         fields = "__all__"
+        # fields = ["title", "content"] 특정 필드만 가져올 수 있음
